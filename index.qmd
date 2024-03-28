@@ -11,10 +11,12 @@ format:
     toc-location: left
     toc-depth: 2
 standalone: true
+embed-resources: true
 execute: 
   warning: false
   echo: false
 number-sections: true
+bibliography: ref.bib
 
 ---
 
@@ -45,9 +47,9 @@ opts <- tmap_options(
 
 # Introduction
 
-Earth Observation online systems are valuable tools for monitoring and studying coastal eutrophication and related phenomena. The Earth Observation online system is designed to provide users with a comprehensive platform for monitoring and studying coastal eutrophication. By leveraging satellite imagery and other remote sensing technologies, the system enables users to gather valuable data and insights into the dynamics of coastal ecosystems. This information can be used to support informed decision-making and policy development aimed at addressing eutrophication and its impacts.
+Earth Observation online systems are valuable tools for monitoring and studying coastal eutrophication and related phenomena [@melet2020earth; @benveniste2020earth; @cherrington2020use]. The Earth Observation online system is designed to provide users with a comprehensive platform for monitoring and studying coastal eutrophication. By leveraging satellite imagery and other remote sensing technologies, the system enables users to gather valuable data and insights into the dynamics of coastal ecosystems. This information can be used to support informed decision-making and policy development aimed at addressing eutrophication and its impacts.
 
-One of the key features of the system is its user-friendly interface (@fig-photo), which allows users to easily access and analyze relevant data. Through the platform, users can visualize and interpret satellite imagery, as well as access a range of analytical tools for processing and interpreting the data. This enables users to gain a deeper understanding of coastal eutrophication processes and their spatial and temporal dynamics.
+One of the key features of the system is its user-friendly interface (@fig-photo), which allows users to easily access and analyze relevant data. Through the platform, users can visualize and interpret satellite imagery, as well as access a range of analytical tools for processing and interpreting the data. This enables users to gain a deeper understanding of coastal eutrophication processes [@kwong2022automatic] and their spatial and temporal dynamics [@melet2020earth].
 
 ![A landing page of the tool with a popup login window](login.png){#fig-photo}
 
@@ -56,7 +58,7 @@ In addition to providing access to satellite imagery and analytical tools, the s
 
 ![The spatial distribution and statistical of deviation indicators across the coasal waters of Tanzania](statisticsArealMetrics.png){#fig-products}
 
-The pilot mode of the system currently focuses on Tanzania and Albania as case study countries. This allows for a targeted exploration of coastal eutrophication dynamics in these specific contexts, providing valuable insights that can inform broader efforts to address eutrophication in coastal areas. By focusing on these case study countries, the system aims to demonstrate its utility in real-world scenarios and refine its capabilities based on user feedback and experiences.
+The pilot mode of the system currently focuses on Tanzania and Albania as case study countries. This allows for a targeted exploration of coastal eutrophication dynamics in these specific contexts, providing valuable insights that can inform broader efforts to address eutrophication in coastal areas [@vitousek2023future]. By focusing on these case study countries, the system aims to demonstrate its utility in real-world scenarios and refine its capabilities based on user feedback and experiences.
 
 The Earth Observation online system offers a valuable resource for monitoring and studying coastal eutrophication. By providing access to satellite imagery, analytical tools, and a range of products, the system supports efforts to understand and address eutrophication in coastal areas. As the system continues to evolve and expand, it has the potential to make significant contributions to coastal management and environmental protection efforts. This report provides a summary of the tool's use and the products it can generate.
 
@@ -114,7 +116,7 @@ The added data layer can easily be visualized on the tool. For instance @fig-vis
 
 ![The spatial distribution of deviation indicator across the coastal waters of Bagamoyo and Dar es Salaam](rasterLayerVisual.png){#fig-visual}
 
-While dealing with spatial data, it's really useful to be able to pick out a particular area you're interested in, perform calculations on that area, and then present the outcomes in visual graphs and organized tables. This tool goes beyond just visualizing the overall deviation indicator across the entire coastal region (@fig-visual). It empowers users with ability to define the area of interest and then perform calculations specifically for that zone. The tool doesn't just give you raw numbers. It presents the results in two user-friendly formats:
+While dealing with spatial data, it's really useful to be able to pick out a particular area you're interested in, perform calculations on that area, and then present the outcomes in visual graphs and organized tables. This tool goes beyond just visualizing the overall deviation indicator across the entire coastal region (@fig-statsMetrics). It empowers users with ability to define the area of interest and then perform calculations specifically for that zone. The tool doesn't just give you raw numbers. It presents the results in two user-friendly formats:
 
 1. **Plots** -- visually represent the deviation indicator across your chosen area. This allows you to see trends and patterns at a glance. 
 
@@ -257,5 +259,5 @@ Another noticed glitch of the tool is hooked with exporting data from the tool y
 
 
 
-
+# References {-}
 

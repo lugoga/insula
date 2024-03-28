@@ -1,0 +1,53 @@
+@article{melet2020earth,
+  title={Earth observations for monitoring marine coastal hazards and their drivers},
+  author={Melet, Angelique and Teatini, P and Le Cozannet, Gon{\'e}ri and Jamet, C and Conversi, A and Benveniste, J and Almar, Rafael},
+  journal={Surveys in Geophysics},
+  volume={41},
+  pages={1489--1534},
+  year={2020},
+  publisher={Springer}
+}
+
+
+@article{benveniste2020earth,
+  title={Earth observations for coastal hazards monitoring and international services: a European perspective},
+  author={Benveniste, J{\'e}r{\^o}me and Mandea, Mioara and Melet, Ang{\'e}lique and Ferrier, Pierric},
+  journal={Surveys in Geophysics},
+  volume={41},
+  pages={1185--1208},
+  year={2020},
+  publisher={Springer}
+}
+
+
+@article{cherrington2020use,
+  title={Use of public Earth observation data for tracking progress in sustainable management of coastal forest ecosystems in Belize, Central America},
+  author={Cherrington, Emil A and Griffin, Robert E and Anderson, Eric R and Sandoval, Betzy E Hernandez and Flores-Anderson, Africa I and Muench, Rebekke E and Markert, Kel N and Adams, Emily C and Limaye, Ashutosh S and Irwin, Daniel E},
+  journal={Remote Sensing of Environment},
+  volume={245},
+  pages={111798},
+  year={2020},
+  publisher={Elsevier}
+}
+
+
+@article{kwong2022automatic,
+  title={Automatic mapping and monitoring of marine water quality parameters in Hong Kong using Sentinel-2 image time-series and Google Earth Engine cloud computing},
+  author={Kwong, Ivan HY and Wong, Frankie KK and Fung, Tung},
+  journal={Frontiers in Marine Science},
+  volume={9},
+  pages={871470},
+  year={2022},
+  publisher={Frontiers}
+}
+
+
+@article{vitousek2023future,
+  title={The future of coastal monitoring through satellite remote sensing},
+  author={Vitousek, Sean and Buscombe, Daniel and Vos, Kilian and Barnard, Patrick L and Ritchie, Andrew C and Warrick, Jonathan A},
+  journal={Cambridge Prisms: Coastal Futures},
+  volume={1},
+  pages={e10},
+  year={2023},
+  publisher={Cambridge University Press}
+}
