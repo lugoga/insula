@@ -1,0 +1,1 @@
+{"frames":[],"message":"Error in leaflet() %>% setView(lng = 39.2, lat = -6.4, zoom = 10) %>%  : \n  could not find function \"%>%\"\n"}

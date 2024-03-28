@@ -1,0 +1,261 @@
+---
+title: "Earth Observation System for Coastal and Marine Environment"
+subtitle: "A Review using Tanzania as a Case Study"
+author: "Masumbuko Semba"
+date: "2024-03-18"
+date-modified: "2024-03-28"
+institute: "Nelson Mandela African Institution of Science and Technology"
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-depth: 2
+standalone: true
+execute: 
+  warning: false
+  echo: false
+number-sections: true
+
+---
+
+```{r}
+require(tidyverse)
+require(leaflet)
+require(terra)
+require(tmap)
+require(sf)
+
+tmap_mode(mode = "view")
+```
+
+
+```{r}
+
+# Use tmap options to set the basemap and overlay map permanently during the R session:
+opts <- tmap_options(
+  basemaps = c(OSM =  "OpenStreetMap", Topo = "Esri.WorldTopoMap", 
+               Canvas = "Esri.WorldGrayCanvas", Imagery = "Esri.WorldImagery"),
+    overlays = c(Labels = paste0("http://services.arcgisonline.com/arcgis/rest/services/Canvas/",
+                                 "World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}"))
+  )
+	
+```
+
+
+
+# Introduction
+
+Earth Observation online systems are valuable tools for monitoring and studying coastal eutrophication and related phenomena. The Earth Observation online system is designed to provide users with a comprehensive platform for monitoring and studying coastal eutrophication. By leveraging satellite imagery and other remote sensing technologies, the system enables users to gather valuable data and insights into the dynamics of coastal ecosystems. This information can be used to support informed decision-making and policy development aimed at addressing eutrophication and its impacts.
+
+One of the key features of the system is its user-friendly interface (@fig-photo), which allows users to easily access and analyze relevant data. Through the platform, users can visualize and interpret satellite imagery, as well as access a range of analytical tools for processing and interpreting the data. This enables users to gain a deeper understanding of coastal eutrophication processes and their spatial and temporal dynamics.
+
+![A landing page of the tool with a popup login window](login.png){#fig-photo}
+
+In addition to providing access to satellite imagery and analytical tools, the system also generates a range of products that can support decision-making and research efforts. These products include maps, reports, and other visualizations (@fig-products) that convey key findings and insights derived from the data. By making these products available, the system aims to facilitate the use of Earth observation data in addressing coastal eutrophication challenges.
+
+
+![The spatial distribution and statistical of deviation indicators across the coasal waters of Tanzania](statisticsArealMetrics.png){#fig-products}
+
+The pilot mode of the system currently focuses on Tanzania and Albania as case study countries. This allows for a targeted exploration of coastal eutrophication dynamics in these specific contexts, providing valuable insights that can inform broader efforts to address eutrophication in coastal areas. By focusing on these case study countries, the system aims to demonstrate its utility in real-world scenarios and refine its capabilities based on user feedback and experiences.
+
+The Earth Observation online system offers a valuable resource for monitoring and studying coastal eutrophication. By providing access to satellite imagery, analytical tools, and a range of products, the system supports efforts to understand and address eutrophication in coastal areas. As the system continues to evolve and expand, it has the potential to make significant contributions to coastal management and environmental protection efforts. This report provides a summary of the tool's use and the products it can generate.
+
+
+# Data access
+
+## Login
+
+Accessing the system involves a two-step process. First, you'll need to head over to the [Earth Observation online system](https://insula.earth). This will take you to the login page (@fig-landingpage). Here, you'll enter your username and password, which are essentially your unique identification details for the system. Once you've entered your credentials and clicked login, assuming everything is correct, you'll be granted access to the system itself.  Think of it like unlocking a door with a key. The link is the address, your credentials are the key, and successful login unlocks the system, allowing you to explore its features and functionalities.
+
+![Landing page of the tool](landingPage.png){#fig-landingpage}
+
+## Adding layers
+The first step is to select the country you want to analyze. To add a deviation indicator layer specifically for Tanzania, look for a dropdown menu labeled "Add Layer" or something similar.  This menu will likely contain a list of various countries. Choose "Tanzania" from this list (@fig-addlayer). This selection ensures that the layer you add pertains only to Tanzanian data. With Tanzania selected, use the "Add to Map" tool to place the deviation indicator layer on your map (@fig-chooselayer).
+
+::: {#fig-layering layout-ncol=2}
+
+![A window for Adding a layer](addlayer.png){#fig-addlayer}
+
+![A window for selecting a layer of interest](chooselayer.png){#fig-chooselayer}
+
+Access the layer of interest for visualization 
+:::
+
+
+## Exploring added layer with Map Layers
+
+Map layers allow you to add multiple datasets, creating a comprehensive view of your information. Each layer unlocks a toolbox for exploration:
+
++ **Zoom In** -- Focus on specific areas within a layer for a closer look.
++ **Show/Hide Layers** -- Manage map clutter by toggling layer visibility.
++ **Swipe Comparison** -- Gain insights by visually comparing data across different layers with a swipe function.
++ **Calculate Statistics** -- Analyze data trends and patterns by computing statistics within each layer.
++ **Download for Local Analysis**  -- Save specific layers to your device for further exploration outside the map viewer.
+
+This robust functionality allows to effectively visualize (@fig-zoom), explore (@fig-toggle), and analyze (@fig-timeline) raster data through map layers.
+
+::: {#fig-layers layout="[[1,1], [1]]"}
+
+
+![Zoom tool in a add layer window](zoomlayer.png){#fig-zoom}
+
+![Toggle tool in a add layer window](togglelayer.png){#fig-toggle}
+
+![Timeline tool for sliding to choose a time window](timelinetool.png){#fig-timeline}
+
+The window with necessary tools to explore the added layer (s)
+
+:::
+
+
+# Visualize
+
+The added data layer can easily be visualized on the tool. For instance @fig-visual show the  spatial distribution of deviation indicators across the coastal waters of Tanzania, which provides information on the changes in the coastal environment. By looking on @fig-visual, it is possible to identify and map areas of deviation in the coastal waters, such as changes in water quality or the presence of pollutants.
+
+![The spatial distribution of deviation indicator across the coastal waters of Bagamoyo and Dar es Salaam](rasterLayerVisual.png){#fig-visual}
+
+While dealing with spatial data, it's really useful to be able to pick out a particular area you're interested in, perform calculations on that area, and then present the outcomes in visual graphs and organized tables. This tool goes beyond just visualizing the overall deviation indicator across the entire coastal region (@fig-visual). It empowers users with ability to define the area of interest and then perform calculations specifically for that zone. The tool doesn't just give you raw numbers. It presents the results in two user-friendly formats:
+
+1. **Plots** -- visually represent the deviation indicator across your chosen area. This allows you to see trends and patterns at a glance. 
+
+1. **Tables** -- contain specific values or statistics related to the deviation indicator for different locations within your chosen area.
+
+
+![The spatial distribution along with statistical metrics of deviation indicator across the coastal waters of Bagamoyo and Dar es Salaam](statisticsArealMetrics.png){#fig-statsMetrics}
+
+
+# Discussion and Recommendations
+
+```{r}
+
+zbar.channel = st_read("data/zanzibar_channel_extent.gpkg", quiet = TRUE)
+regions = st_read("data/tz_regions.gpkg", quiet = T)
+
+
+aoi = regions %>% filter(name  %in% c("DAR  ES SALAAM", "MJINI MAGHARIBI", "KUSINI", "KASKAZINI", "PWANI")) 
+```
+
+
+
+```{r}
+dv = terra::rast("data/Tanzania - Deviations Indicator.tiff")
+
+```
+
+
+```{r}
+dv = dv %>% terra::clamp()
+
+mchongo = dv %>% 
+  terra::values() %>% 
+  quantile(c(0.05,0.95), na.rm = T) %>% 
+  as.vector()
+```
+
+
+```{r}
+dv = dv %>% 
+  tidyterra::rename(dv = 1) %>% 
+  tidyterra::filter(dv > mchongo[1])
+```
+
+
+```{r}
+pal.image = colorNumeric(
+  palette = oce::oce.colorsTwo(120), 
+  domain = terra::values(dv),  
+  na.color = "transparent")
+
+pal = colorNumeric(palette = c("#7f007f", "#0000ff",  "#007fff", "#00ffff", "#00bf00", "#7fdf00",
+                               "#ffff00", "#ff7f00", "#ff3f00", "#ff0000", "#bf0000"),
+                   values(dv),  na.color = "transparent")
+```
+
+
+
+
+
+
+```{r}
+#| eval: false
+#| label: fig-fig2
+#| fig-cap: The spatial distribution of algal broom binned in class across the Zanzibar Channel
+#| 
+
+tm_shape(shp = dv)+
+  tm_basemap() +
+  tm_view(set.view = c(39.2,-6.4,10)) +
+  tm_raster(
+    style = "fisher", palette = oce::oce.colorsTwo(120), 
+    n = 7, stretch.palette = T, 
+    interpolate = T,
+    group = "DV", 
+    title = "Broom Level")
+
+```
+
+
+```{r}
+dv.crop = dv %>% 
+  terra::crop(zbar.channel) %>% 
+  terra::mask(zbar.channel)
+
+  
+dv.crop.df = dv.crop %>% 
+  terra::as.data.frame(xy = TRUE)
+```
+
+
+```{r}
+#| eval: false
+#| label: fig-fig4
+#| fig-cap: The spatial distribution of algal broom across the coastal waters of Bagamoyo and Dar es Salaam
+#| 
+ggplot() +
+  ggspatial::layer_spatial(data = aoi, fill = "#BEBD7F")+
+  geom_sf_text(data = aoi, aes(label = name),  color = "white") +
+  metR::geom_contour_fill(data = dv.crop.df, aes(x = x, y = y, z = dv))+
+  coord_sf(xlim = c(38.8, 39.6), ylim = c(-7.0, -5.9)) +
+  scale_fill_gradientn(colours = oce::oceColorsTwo(120))+
+  theme_bw(base_size = 12) +
+  theme(axis.title = element_blank(), panel.background = element_rect(fill = "lightblue"), panel.grid = element_line(linetype = 3, linewidth = .5))
+  
+
+```
+
+
+This tool is great for looking at image data (raster layers) on a map. You can zoom in for a closer look, turn layers on and off to keep things clear, and even swipe back and forth between layers to compare them. Plus, you can download the data to your computer and use powerful programs like Python and R to visualize, analyze and even display the spatial distribution of the data across the area in interactive mode (@fig-fig1). This could be really helpful for studying things like algae blooms in Tanzania's coastal waters.
+
+
+```{r}
+#| eval: true
+#| label: fig-fig1
+#| fig-cap: The spatial distribution of algal broom across the Zanzibar Channel
+#| 
+leaflet() %>% 
+  setView(lng = 39.2, lat = -6.4, zoom = 10) %>%
+  addTiles(group = "Open Street") %>% 
+  addProviderTiles(provider = "Esri.WorldTopoMap", group = "Topography") %>% 
+  addProviderTiles(provider = "Esri.WorldGrayCanvas", group = "The Canvas") %>% 
+  addProviderTiles(provider = "Esri.WorldImagery", group = "Esri Imagery") %>% 
+  addRasterImage(x = dv, colors = pal.image, opacity = 1, group = "Deviations") %>% 
+  addLegend(pal = pal.image, values = values(dv), title = "Broom level", opacity = 1) %>% 
+  addLayersControl(
+    baseGroups = c("Open Street", "Topography", "Esri Imagery", "The Canvas"),
+    overlayGroups = "Deviations", options = layersControlOptions(collapse = FALSE)
+    )
+  
+```
+
+
+There's just one catch,  adding layers can be tricky sometimes. You might see a warning message (@fig-error). If that happens, check the tool's instructions or help section to see how to fix it. There might be another way to add layers, like dragging and dropping them or using a "Browse" button to find them on your computer. By fixing the adding layers problem, you can use all the tool's features and even do some powerful analysis with other programs!
+
+
+![Error for adding layer on a map ](error.png){#fig-error}
+
+Another noticed glitch of the tool is hooked with exporting data from the tool you're using. When trying to save the calculated area information as a regular table file (CSV format) on a computer, the tool freezes up and doesn't respond. This means you can't get the data out in a format that's easy to work with later. In other words, the tool is glitching and preventing you from saving your calculations as a downloadable file.
+
+
+
+
+

@@ -1,0 +1,20 @@
+"0","#| eval: true
+#| label: fig-fig1
+#| fig-cap: The spatial distribution of algal broom across the Zanzibar Channel
+#| 
+leaflet() %>% 
+  setView(lng = 39.2, lat = -6.4, zoom = 10) %>%
+  addTiles(group = ""OSM"") %>% 
+  addProviderTiles(provider = ""Esri.WorldTopoMap"", group = ""Topography"") %>% 
+  addProviderTiles(provider = ""Esri.WorldGrayCanvas"", group = ""The Canvas"") %>% 
+  addProviderTiles(provider = ""Esri.WorldImagery"", group = ""Esri Imagery"") %>% 
+  addRasterImage(x = dv, colors = pal.image, opacity = 1, group = ""Deviations"") %>% 
+  addLegend(pal = pal.image, values = values(dv), title = ""Broom level"", opacity = 1) %>% 
+  addLayersControl(
+    baseGroups = c(""OSM"", ""Topo"", ""Canvas"", ""Imagery""),
+    overlayGroups = ""Deviations"", options = layersControlOptions(collapse = FALSE)
+    )
+"
+"2","Error in leaflet() %>% setView(lng = 39.2, lat = -6.4, zoom = 10) %>%  : 
+  could not find function ""%>%""
+"
